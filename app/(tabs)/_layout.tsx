@@ -1,6 +1,4 @@
 import { Tabs } from 'expo-router';
-import React from 'react';
-import { Ionicons } from '@expo/vector-icons';
 import { Text } from 'react-native';
 
 export default function TabLayout() {
@@ -21,7 +19,7 @@ export default function TabLayout() {
         name="explore"
         options={{
           title: 'Explore',
-          tabBarIcon: () => <Text>Expore</Text>,
+          tabBarIcon: () => <Text>Explore</Text>,
         }}
       />
     </Tabs>
