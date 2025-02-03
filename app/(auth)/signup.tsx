@@ -1,9 +1,9 @@
 import { View, Text, StyleSheet } from 'react-native';
 
-export default function HomeScreen() {
+export default function () {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Home</Text>
+      <Text style={styles.text}>Signup</Text>
     </View>
   );
 }
@@ -13,10 +13,10 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'white',
+    backgroundColor: 'black',
   },
   text: {
-    color: 'black',
+    color: 'white',
     fontSize: 24, // text-3xl (24px in Tailwind)
     fontWeight: 'bold', // font-bold
   },
