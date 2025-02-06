@@ -15,47 +15,56 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Home',
-          tabBarIcon: () => <Ionicons name="home-sharp" size={24} color="black" />,
+          tabBarIcon: ({ focused }) => <Ionicons name={focused ? "home-sharp" : "home-outline"} size={24} color="black" />,
         }}
       />
       <Tabs.Screen
         name="friends"
         options={{
           title: 'Friends',
-          tabBarIcon: () => <Ionicons name="people" size={26} color="black" />,
+          tabBarIcon: ({ focused }) => <Ionicons name={focused ? "people" : "people-outline"} size={26} color="black" />,
         }}
       />
       <Tabs.Screen
         name="camera"
         options={{
-          title: 'Camera',
+          title: 'Upload',
           tabBarIcon: () => 
-          // <View style={styles.iconContainer}>
-            <Ionicons name="camera" size={26} color="black" />,
-          // </View>
+          <View style={styles.iconContainer}>
+            <Ionicons name="add-circle" size={30} color="black" />,
+          </View>
         }}
       />
       <Tabs.Screen
         name="inbox"
         options={{
           title: 'Inbox',
-          tabBarIcon: () => <Ionicons name="mail" size={24} color="black" />,
+          tabBarIcon: ({ focused }) => 
+          // <View style={styles.iconInbox}>
+            <Ionicons name={focused ? "mail" : "mail-outline"} size={24} color="black" />,
+          // </View>
         }}
       />
       <Tabs.Screen
         name="profile"
         options={{
           title: 'Profile',
-          tabBarIcon: () => <Ionicons name="person" size={24} color="black" />,
+          tabBarIcon: ({ focused }) => <Ionicons name={focused ? "person" : "person-outline"} size={24} color="black" />,
         }}
       />
     </Tabs>
   );
 }
 
-// const styles = StyleSheet.create({
-//   iconContainer: {
-//     position: 'absolute',
-//     margin: 1,
-//   },
-// });
+const styles = StyleSheet.create({
+  iconContainer: {
+    position: 'absolute',
+    margin: 1,
+    zIndex: 999, // Higher value brings it to the front
+  },
+  iconInbox: {
+    position: 'absolute',
+    margin: 1,
+    zIndex: 998, // Higher value brings it to the front
+  },
+});

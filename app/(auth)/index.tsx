@@ -5,13 +5,12 @@ export default function () {
   const router = useRouter();
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Login</Text>
-      <Link href="/(tabs)">This is a button</Link>
+      {/* <Text style={styles.text}>Login</Text> */}
       <TouchableOpacity
         style={styles.button}
         onPress={() => router.push("/(tabs)")}
       >
-        <Text style={styles.buttonText}>This is a button</Text>
+        <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
     </View>
   );
@@ -31,7 +30,8 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: 'black', // bg-black
-    padding: 16, // p-4 (16px)
+    paddingHorizontal: 16, // px-4 (1rem = 16px)
+    paddingVertical: 8,   // py-2 (0.5rem = 8px)
     borderRadius: 12, // rounded-lg (12px)
   },
   buttonText: {
