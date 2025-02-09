@@ -1,17 +1,37 @@
 import { Link, useRouter } from 'expo-router';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 
 export default function () {
   const router = useRouter();
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+
+  const handleLogin = () => {
+    console.log(email, password)
+  };
+  
   return (
     <View style={styles.container}>
-      {/* <Text style={styles.text}>Login</Text> */}
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => router.push("/(tabs)")}
-      >
-        <Text style={styles.buttonText}>Login</Text>
-      </TouchableOpacity>
+      <Text style={styles.text}>Login</Text>
+      <View style={styles.loginContainer}>
+        <TextInput
+          placeholder="EMail"
+          style={styles.inputField} 
+        />
+        <TextInput
+          secureTextEntry={true}
+
+          placeholder="Password"
+          style={styles.inputField} 
+        />
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => router.push("/(tabs)")}
+        >
+          <Text style={styles.buttonText}>Login</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -22,6 +42,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'white',
+  },
+  loginContainer: {
+    width: '100%', // Equivalent to `w-full`
+    padding: 16,   // Equivalent to `p-4` (since 1rem = 4px, p-4 = 16px)
   },
   text: {
     color: 'black',
@@ -39,4 +63,16 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 16,
   },
+  inputField: {
+    backgroundColor: 'white',
+    paddingHorizontal: 8,
+    paddingVertical: 16,
+    borderRadius: 8,
+    marginHorizontal: 28,
+    marginVertical: 16,
+    borderWidth: 1, // Optional: Adds a visible border
+    borderColor: '#D1D5DB',
+    width: '90%', // 👈 Equivalent to Tailwind's `w-full`
+  },
+  
 });
